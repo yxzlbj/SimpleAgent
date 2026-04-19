@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Agent </title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <h1>🤖 Simple Agent</h1>
+        </header>
+
+        <div class="content">
+            <!-- 聊天区 -->
+            <div class="chat-panel">
+                <div class="panel-header">
+                    <h2>💬 对话区</h2>
+                    <button id="clearBtn" class="btn-small">清空历史</button>
+                </div>
+
+                <div id="messages" class="messages">
+                    <div class="message system">
+                        👋 欢迎使用 Agent
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <input
+                        type="text"
+                        id="input"
+                        class="input-field"
+                        placeholder="输入你的问题..."
+                        autocomplete="off"
+                    />
+                    <button id="sendBtn" class="btn-send">发送</button>
+                </div>
+            </div>
+
+            <!-- 右侧面板 -->
+            <div class="right-panel">
+                <!-- 选项卡 -->
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="process">执行过程</button>
+                    <button class="tab-btn" data-tab="history">对话历史</button>
+                    <button class="tab-btn" data-tab="stats">统计数据</button>
+                </div>
+
+                <!-- 执行过程 -->
+                <div id="process" class="tab-content active">
+                    <div id="processContent" class="content-area">
+                        <p class="placeholder">等待 Agent 执行...</p>
+                    </div>
+                </div>
+
+                <!-- 对话历史 -->
+                <div id="history" class="tab-content">
+                    <div id="historyContent" class="content-area">
+                        <p class="placeholder">加载中...</p>
+                    </div>
+                </div>
+
+                <!-- 统计数据 -->
+                <div id="stats" class="tab-content">
+                    <div id="statsContent" class="content-area">
+                        <p class="placeholder">加载中...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 示例问题 -->
+        <div class="examples">
+            <h3>💡 示例问题：</h3>
+            <button class="example-btn" onclick="ask('北京的天气怎么样')">查询天气</button>
+            <button class="example-btn" onclick="ask('搜索 Python')">搜索信息</button>
+            <button class="example-btn" onclick="ask('翻译 Hello World 为中文')">翻译文本</button>
+            <button class="example-btn" onclick="ask('现在几点了')">查询时间</button>
+            <button class="example-btn" onclick="ask('我叫什么名字')">查询我的名字</button>
+        </div>
+    </div>
+
+    <!-- 加载动画 -->
+    <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Agent 处理中...</p>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
